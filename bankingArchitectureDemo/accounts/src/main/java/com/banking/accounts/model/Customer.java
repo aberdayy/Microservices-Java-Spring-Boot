@@ -26,5 +26,6 @@ public class Customer {
 	private String mobileNumber;
 	@Column(name = "create_dt")
 	private LocalDate createDt;
+	
 
 }

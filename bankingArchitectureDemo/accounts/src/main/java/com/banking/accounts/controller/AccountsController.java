@@ -12,23 +12,19 @@ import com.banking.accounts.repository.AccountsRepository;
 @RestController
 public class AccountsController {
 
-@Autowired
-private AccountsRepository accountsRepository;
-
-@PostMapping("/myAccount")
-public Accounts getAccountdetails(@RequestBody Customer customer) {
+	@Autowired
+	private AccountsRepository accountsRepository;
 	
-	Accounts accounts = accountsRepository.findByCustomerId(customer.);
-	//lombok getter setter doesnt work
-	
-	//Install lombok
-	
-	if(accounts != null) {
-		return accounts;
-	}else {
-		return null;
+	@PostMapping("/myAccount")
+	public Accounts getAccountdetails(@RequestBody Customer customer) {
+		
+		Accounts accounts = accountsRepository.findByCustomerId(customer.getCustomerId());
+		if(accounts != null) {
+			return accounts;
+		}else {
+			return null;
+		}
+		
 	}
-	
-}
 
 }
